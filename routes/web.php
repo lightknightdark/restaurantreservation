@@ -34,7 +34,9 @@ Route::get('/categories',[FrontendCategoryController::class,'index'])->name('cat
 Route::get('/categories/{category}',[FrontendCategoryController::class,'show'])->name('categories.show');
 Route::get('/menus',[FrontendMenuController::class,'index'])->name('menus.index');
 Route::get('/reservations/step-one',[FrontendReservationController::class,'stepOne'])->name('menus.step.one');
-Route::get('/reservations/step-two',[FrontendReservationController::class,'stepTwo'])->name('menus.step.two');
+Route::post('/reservations/step-one',[FrontendReservationController::class,'storeStepOne'])->name('menus.step.one');
+Route::get('/reservations/step-two',[FrontendReservationController::class,'stepTwo'])->name('menus.store.step.two');
+Route::post('/reservations/step-two',[FrontendReservationController::class,'storeStepTwo'])->name('menus.store.step.two');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
